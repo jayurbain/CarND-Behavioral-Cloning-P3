@@ -1,0 +1,150 @@
+Udacity data:
+https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip
+
+Create video
+python video.py run1 --fps 48
+
+
+100 epochs
+no gaussian noise
+no horizontally flipped images
+all images, i.e., no steering wheel restrictions
+no histogram
+
+model_1_100e_no-gaus_no-horiz_no_steer_no-hit.h5
+
+Epoch 100/100
+140s - loss: 0.0061 - val_loss: 0.0146
+Test Loss: 0.0164971193299
+Saving model weights and configuration file.
+
+//////////////////////////////////
+
+40 epochs
+no gaussian noise
+no horizontally flipped images
+all images, i.e., no steering wheel restrictions
+yes histogram
+
+model_1_100e_no-gaus_no-horiz_no_steer_yes-hist.h5
+
+Epoch 40/40
+24s - loss: 0.0060 - val_loss: 0.0320
+Test Loss: 0.0365722961724
+
+
+
+////////////////////////
+
+40 epochs
+no gaussian noise
+no horizontally flipped images
+all images, i.e., no steering wheel restrictions
+yes histogram
+
+model_1_40e_no-gaus_no-horiz_no_steer_yes-hist.h5
+
+Epoch 100/100
+140s - loss: 0.0061 - val_loss: 0.0146
+Test Loss: 0.0164971193299
+Saving model weights and configuration file.
+
+Epoch 40/40
+100s - loss: 0.0074 - val_loss: 0.0197
+Test Loss: 0.0144515489228
+Saving model weights and configuration file.
+
+/////////////////////////////////////
+
+40 epochs
+yes gaussian noise
+yes horizontally flipped images
+all images, i.e., no steering wheel restrictions wrt min angle
+yes histogram
+0.0001 learning rate instead of Adam default 0.001
+only center image
+
+model_1_40e_yes-gaus_yes-horiz_no_steer_yes-hist.h5
+
+
+Epoch 40/40
+33s - loss: 0.0052 - val_loss: 0.0111
+Test Loss: 0.0164937251247
+
+
+
+/////////////////////////////////////
+
+40 epochs
+yes gaussian noise
+yes horizontally flipped images
+all images, i.e., no steering wheel restrictions wrt min angle
+yes histogram
+0.0001 learning rate instead of Adam default 0.001
+only center image
+resularizer not dropout
+
+model_1_40e_yes-gaus_yes-horiz_no_steer_yes-hist_yes-reg.h5
+
+Epoch 40/40
+38s - loss: 0.0114 - val_loss: 0.0137
+Test Loss: 0.00943507626653
+
+////////////////////////////
+
+
+40 epochs
+yes gaussian noise
+yes horizontally flipped images
+yes histogram
+0.0001 learning rate instead of Adam default 0.001
+all images
+regularizer not dropout
+additional layers
+
+model_1-1_40e_yes-gaus_yes-horiz-yes_hist-yes-all-images-yes_reg-yes_layers-yes.h5
+
+Epoch 40/40
+89s - loss: 0.0165 - val_loss: 0.0167
+Test Loss: 0.0144323417917
+
+
+///////////////////////////
+
+100 epochs
+yes gaussian noise
+yes horizontally flipped images
+yes histogram
+0.0001 learning rate instead of Adam default 0.001
+center only images
+regularizer not dropout
+additional layers
+
+model_1-1_100e_yes-gaus_yes-horiz-yes_hist-yes-all-images-yes_reg-yes_layers-yes.h5
+
+Epoch 100/100
+29s - loss: 0.0133 - val_loss: 0.0157
+Test Loss: 0.0115352692083
+
+
+
+
+///////////////////////////
+
+100 epochs
+yes gaussian noise
+yes horizontally flipped images
+yes histogram
+0.0001 learning rate instead of Adam default 0.001
+all images
+regularizer not dropout
+additional layers
+
+model_1-1_100e_gaus-no_horizflip-yes_hist-yes-allimages-yes_reg-yes_layers-yes.h5
+
+
+
+
+
+
+

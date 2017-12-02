@@ -1,0 +1,39 @@
+Data preprocessing
+
+Normalizing the data:
+pixel_normalized = pixel / 255
+
+Mean centering the data:
+pixel_mean_centered = pixel_normalized - 0.5
+
+Implemented with Keras Lambda layer:
+model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160,320,3)))
+
+
+Flipping Images And Steering Measurements
+- Due to the test track, the model pulls to the left. A way to generalize 
+the data is to create a second copy of the images where the images flipped and steering angles reveresed.
+
+import numpy as np
+image_flipped = np.fliplr(image)
+measurement_flipped = -measurement
+
+
+Use center, left, and right cameras
+- To use the left image a postive steering correction factor is used.
+- To use the right image a negative steering correction factor is used.
+
+# create adjusted steering measurements for the side camera images
+correction = 0.1 # this is a parameter to tune
+steering_left = steering_center + correction
+steering_right = steering_center - correction
+
+Crop images from top and bottom to remove areas not relevant to steering.
+model.add(Cropping2D(cropping=((50,20), (0,0)), input_shape=(3,160,320)))
+
+
+Gathering more training data
+
+
+Driving Counter-Clockwise
+Track one has a left turn bias. If you only drive around the first track in a clock-wise direction, the data will be biased towards left turns. One way to combat the bias is to turn the car around and record counter-clockwise laps around the track. Driving counter-clockwise is also like giving the model a new track to learn from, so the model will generalize better.

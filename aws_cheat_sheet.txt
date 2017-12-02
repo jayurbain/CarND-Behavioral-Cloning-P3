@@ -1,0 +1,48 @@
+
+
+
+
+conda install -c menpo opencv
+
+conda install -c conda-forge python-socketio
+
+
+sudo apt-get install zip
+
+ssh carnd@34.207.99.4
+
+cd CarND-Behavioral-Cloning-P3
+
+scp CarND-Behavioral-Cloning-P3.zip carnd@34.207.99.4:~/.
+
+scp model2.py carnd@34.207.99.4:~/CarND-Behavioral-Cloning-P3/.
+
+In case this helps anyone.
+
+I ran the simulator and then quit the simulator and then tried running the simulator again but drive.py could not connect. this is because drive.py is still using the port.
+
+in this case kill the python process that is using the port.
+
+Run sudo lsof -i -n -P | grep TCP
+
+Then sudo kill -9 PID
+
+
+python drive.py -h model99.h5 data/IMG
+
+cd documents
+cd machine_learning
+cd projects
+cd CarND-Behavioral-Cloning
+(source) activate carnd-term1
+python drive.py model.json
+
+
+
+
+with open('model.json', 'w') as fd:
+   json.dump(model.to_json(), fd)
+model.save_weights('model.h5')
+
+
+
